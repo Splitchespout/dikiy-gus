@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261127-5">
+  <link rel="stylesheet" href="styles.css?v=20261127-6">
 </head>
 <body id="top">
 
@@ -545,41 +545,12 @@
             <h2 class="section-title section-title-light">Онлайн-бронирование и расчёт</h2>
           </div>
           <p class="section-lead section-lead-light">
-            Выберите даты в официальном модуле свободных дат гостевого дома или рассчитайте ориентировочную стоимость и отправьте готовую заявку напрямую администратору.
+            Выберите категорию дома, даты отдыха и дополнительные услуги — калькулятор сразу покажет ориентировочную стоимость и подготовит готовую заявку для администратора.
           </p>
         </div>
 
-        <!-- Переключатель режимов: Официальный календарь HomeReserve (по умолчанию) / Быстрый калькулятор -->
-        <div class="booking-mode-switch reveal" role="tablist" aria-label="Способ бронирования">
-          <button type="button" class="mode-btn is-active" data-booking-mode="widget" role="tab" aria-selected="true">
-            Официальный календарь HomeReserve (свободные даты)
-          </button>
-          <button type="button" class="mode-btn" data-booking-mode="calc" role="tab" aria-selected="false">
-            Калькулятор и заявка в WhatsApp
-          </button>
-        </div>
-
-        <!-- Панель 1 (по умолчанию): Реальный официальный виджет бронирования HomeReserve -->
-        <div class="booking-panel is-active" id="bookingWidgetPanel">
-          <div class="hr-widget-shell">
-            <div class="hr-widget-top">
-              <div>
-                <strong>Официальная система бронирования «Дикий Гусь»</strong>
-                <span>Свободные дома и точные цены в реальном времени</span>
-              </div>
-              <div class="hr-top-actions">
-                <a href="tel:+79037406661" class="hr-help-link">+7 (903) 740-66-61</a>
-                <button type="button" class="hr-calc-switch" id="switchToCalcBtn">Рассчитать с баней →</button>
-              </div>
-            </div>
-            <div id="hr-widget" class="hr-widget-mount">
-              <div class="hr-loading" id="hrLoadingMsg">Загружаем живой календарь бронирования HomeReserve…</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Панель 2: Премиальный калькулятор + Чек бронирования -->
-        <div class="booking-panel" id="bookingCalcPanel" hidden>
+        <!-- Премиальный калькулятор + Чек бронирования -->
+        <div class="booking-panel is-active" id="bookingCalcPanel">
           <div class="calc-luxury-grid">
             <div class="calc-form-box">
               <div class="calc-step-title">1. Выберите категорию дома</div>
@@ -688,7 +659,7 @@
                 <strong id="sumTotalPrice">13 600 ₽</strong>
               </div>
               <p class="summary-note">
-                Точную стоимость и наличие свободных домиков на ваши даты подтверждает администратор или живой календарь HomeReserve.
+                Точную стоимость и наличие свободных домиков на ваши даты подтверждает администратор по телефону или в WhatsApp.
               </p>
 
               <div class="summary-cta-stack">
@@ -696,9 +667,6 @@
                 <a href="https://wa.me/79037406661" target="_blank" rel="noopener noreferrer" class="btn-outline-light btn-full" id="waBookBtn">
                   Отправить заявку в WhatsApp
                 </a>
-                <button type="button" class="btn-ghost-bronze" id="switchToWidgetBtn">
-                  Проверить свободные даты в календаре HomeReserve →
-                </button>
               </div>
             </aside>
           </div>
@@ -904,6 +872,6 @@
     </div>
   </dialog>
 
-  <script src="script.js?v=20261127-5" defer></script>
+  <script src="script.js?v=20261127-6" defer></script>
 </body>
 </html>

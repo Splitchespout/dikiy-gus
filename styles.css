@@ -682,8 +682,8 @@ button, input, select {
    ========================================================================= */
 .metrics-strip {
   background: var(--emerald-900);
-  border-top: 1px solid var(--border-dark);
-  border-bottom: 1px solid var(--border-dark);
+  border-top: 1px solid rgba(212, 174, 130, 0.14);
+  border-bottom: 1px solid rgba(212, 174, 130, 0.14);
   padding: 32px 0;
   color: var(--cream-50);
 }
@@ -725,27 +725,14 @@ button, input, select {
 }
 
 /* =========================================================================
-   ОБЩИЕ СЕКЦИИ И ЗАГОЛОВКИ — ЕДИНАЯ ТЁМНО-ИЗУМРУДНАЯ ТЕМА (TOTAL DARK EMERALD)
+   ОБЩИЕ СЕКЦИИ И ЗАГОЛОВКИ — ЕДИНЫЙ РОВНЫЙ ТЁМНО-ИЗУМРУДНЫЙ ФОН (#0F1F18)
    ========================================================================= */
-.section-cream {
-  background: linear-gradient(180deg, #11231B 0%, #0E1D16 100%);
-  color: var(--cream-50);
-  padding: 88px 0;
-  border-top: 1px solid rgba(212, 174, 130, 0.12);
-}
-
-.section-sand {
-  background: linear-gradient(180deg, #14281F 0%, #102019 100%);
-  color: var(--cream-50);
-  padding: 88px 0;
-  border-top: 1px solid rgba(212, 174, 130, 0.14);
-}
-
+.section-cream,
+.section-sand,
 .section-emerald {
-  background: linear-gradient(180deg, #0B1712 0%, #0F1F18 100%);
+  background: var(--emerald-900);
   color: var(--cream-50);
-  padding: 92px 0;
-  border-top: 1px solid rgba(212, 174, 130, 0.14);
+  padding: 88px 0;
 }
 
 .section-head {
@@ -2085,8 +2072,8 @@ button, input, select {
    ПОДВАЛ И МОБИЛЬНАЯ ПАНЕЛЬ
    ========================================================================= */
 .site-footer {
-  background: var(--emerald-950);
-  border-top: 1px solid var(--border-dark);
+  background: var(--emerald-900);
+  border-top: 1px solid rgba(212, 174, 130, 0.16);
   color: rgba(246, 243, 236, 0.72);
   padding: 28px 0;
 }

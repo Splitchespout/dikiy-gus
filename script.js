@@ -357,7 +357,6 @@
       state.house = quickHouse.value;
       presetPills.forEach((p) => p.classList.remove('is-active'));
       recalc();
-      setBookingMode('calc');
       document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
     });
   }
@@ -424,7 +423,6 @@
     btn.addEventListener('click', () => {
       state.house = btn.dataset.selectHouse;
       recalc();
-      setBookingMode('calc');
       document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
     });
   });
@@ -476,65 +474,6 @@
       if (Math.abs(dx) > 40) go(dx < 0 ? idx + 1 : idx - 1);
     }, { passive: true });
   });
-
-  /* =========================================================================
-     4. ПЕРЕКЛЮЧЕНИЕ НА РЕАЛЬНЫЙ ВИДЖЕТ БРОНИРОВАНИЯ HOMERESERVE (ПО УМОЛЧАНИЮ)
-     ========================================================================= */
-  const modeBtns = Array.from(document.querySelectorAll('.mode-btn'));
-  const calcPanel = document.getElementById('bookingCalcPanel');
-  const widgetPanel = document.getElementById('bookingWidgetPanel');
-  const switchToWidgetBtn = document.getElementById('switchToWidgetBtn');
-  const switchToCalcBtn = document.getElementById('switchToCalcBtn');
-  let hrLoaded = false;
-
-  function loadHomeReserveWidget() {
-    if (hrLoaded) return;
-    hrLoaded = true;
-    const script = document.createElement('script');
-    script.type = 'module';
-    script.src = 'https://homereserve.ru/widget.js';
-    script.onload = () => {
-      const msg = document.getElementById('hrLoadingMsg');
-      if (window.homereserve && typeof window.homereserve.initWidgetSearch === 'function') {
-        if (msg) msg.remove();
-        window.homereserve.initWidgetSearch({ token: 'wqkGcC5onA' });
-      }
-    };
-    script.onerror = () => {
-      const msg = document.getElementById('hrLoadingMsg');
-      if (msg) msg.textContent = 'Календарь HomeReserve временно недоступен — воспользуйтесь калькулятором или позвоните +7 (903) 740-66-61.';
-    };
-    document.body.appendChild(script);
-  }
-
-  function setBookingMode(mode) {
-    modeBtns.forEach((b) => {
-      const act = b.dataset.bookingMode === mode;
-      b.classList.toggle('is-active', act);
-      b.setAttribute('aria-selected', String(act));
-    });
-    if (calcPanel) calcPanel.hidden = mode !== 'calc';
-    if (widgetPanel) widgetPanel.hidden = mode !== 'widget';
-    if (mode === 'widget') loadHomeReserveWidget();
-  }
-
-  modeBtns.forEach((b) => b.addEventListener('click', () => setBookingMode(b.dataset.bookingMode)));
-  if (switchToWidgetBtn) switchToWidgetBtn.addEventListener('click', () => setBookingMode('widget'));
-  if (switchToCalcBtn) switchToCalcBtn.addEventListener('click', () => setBookingMode('calc'));
-
-  // Автозагрузка живого виджета HomeReserve, как только секция бронирования приближается к экрану
-  const bookingSection = document.getElementById('booking');
-  if (bookingSection && 'IntersectionObserver' in window) {
-    const hrObs = new IntersectionObserver((entries, obs) => {
-      if (entries.some((e) => e.isIntersecting)) {
-        loadHomeReserveWidget();
-        obs.disconnect();
-      }
-    }, { rootMargin: '320px 0px' });
-    hrObs.observe(bookingSection);
-  } else {
-    loadHomeReserveWidget();
-  }
 
   /* =========================================================================
      5. ФОТОГАЛЕРЕЯ С ФИЛЬТРАМИ И НАТИВНЫЙ LIGHTBOX <dialog>
