@@ -767,24 +767,96 @@ button, input, select {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.7s var(--ease-luxury);
+  transition: transform 0.7s var(--ease-luxury), opacity 0.25s ease;
+}
+
+.house-media img.is-fading {
+  opacity: 0.35;
 }
 
 .house-card:hover .house-media img {
-  transform: scale(1.05);
+  transform: scale(1.04);
+}
+
+.card-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  background: rgba(10, 21, 16, 0.62);
+  backdrop-filter: blur(6px);
+  color: var(--white);
+  font-size: 1.25rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.25s, background-color 0.2s, border-color 0.2s;
+  z-index: 3;
+}
+
+.card-prev { left: 10px; }
+.card-next { right: 10px; }
+
+.house-media:hover .card-nav,
+.house-media:focus-within .card-nav {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .card-nav { opacity: 0.92; }
+}
+
+.card-nav:hover {
+  background: var(--bronze-500);
+  border-color: var(--bronze-400);
+  color: var(--emerald-950);
+}
+
+.card-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  gap: 5px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(10, 21, 16, 0.54);
+  backdrop-filter: blur(6px);
+  z-index: 3;
+}
+
+.card-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  transition: width 0.25s, background-color 0.25s;
+}
+
+.card-dot.is-active {
+  width: 16px;
+  border-radius: 999px;
+  background: var(--bronze-400);
 }
 
 .house-pill {
   position: absolute;
   left: 14px;
-  bottom: 14px;
+  top: 14px;
   padding: 6px 12px;
   border-radius: 999px;
   background: rgba(251, 249, 244, 0.93);
   color: var(--emerald-900);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 700;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  z-index: 2;
 }
 
 .house-photo-count {
@@ -1648,15 +1720,40 @@ button, input, select {
   color: rgba(246, 243, 236, 0.72);
 }
 
+.hr-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
 .hr-help-link {
   color: var(--bronze-400);
   font-weight: 600;
   font-size: 0.88rem;
 }
 
+.hr-calc-switch {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(212, 174, 130, 0.45);
+  background: rgba(197, 155, 109, 0.14);
+  color: var(--cream-50);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.hr-calc-switch:hover {
+  background: var(--bronze-500);
+  border-color: var(--bronze-400);
+  color: var(--emerald-950);
+}
+
 .hr-widget-mount {
-  padding: 24px;
-  min-height: 360px;
+  padding: 28px 24px 32px;
+  min-height: 150px;
 }
 
 .hr-loading {
@@ -2091,21 +2188,42 @@ button, input, select {
 }
 
 /* =========================================================================
-   ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ (SCROLL REVEAL)
+   ПЛАВНОЕ КАСКАДНОЕ ПОЯВЛЕНИЕ КАРТОЧЕК И БЛОКОВ (STAGGERED SCROLL REVEAL)
    ========================================================================= */
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.65s var(--ease-luxury), transform 0.65s var(--ease-luxury);
+  transform: translateY(28px) scale(0.985);
+  transition:
+    opacity 0.72s var(--ease-luxury),
+    transform 0.72s var(--ease-luxury);
+  will-change: opacity, transform;
 }
 
 .reveal.is-in {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+}
+
+.reveal-d1 { transition-delay: 0.04s; }
+.reveal-d2 { transition-delay: 0.14s; }
+.reveal-d3 { transition-delay: 0.24s; }
+.reveal-d4 { transition-delay: 0.34s; }
+
+.gallery-tile {
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  transition:
+    opacity 0.55s var(--ease-luxury),
+    transform 0.55s var(--ease-luxury);
+}
+
+.gallery-tile.is-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal, .gallery-tile { opacity: 1; transform: none; transition: none !important; }
   .hero-bg-img { transition: opacity 0.3s; transform: none !important; }
 }
 

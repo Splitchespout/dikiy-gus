@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261127-2">
+  <link rel="stylesheet" href="styles.css?v=20261127-4">
 </head>
 <body id="top">
 
@@ -169,28 +169,28 @@
          ===================================================================== -->
     <section class="metrics-strip" aria-label="Ключевые факты о гостевом доме">
       <div class="container metrics-grid">
-        <div class="metric-item reveal">
+        <div class="metric-item reveal reveal-d1">
           <span class="metric-num">1,5 га</span>
           <div class="metric-text">
             <strong>Уединённый полуостров</strong>
             <p>Омывается Селигером с трёх сторон, никакой суеты и чужих машин</p>
           </div>
         </div>
-        <div class="metric-item reveal">
+        <div class="metric-item reveal reveal-d2">
           <span class="metric-num">40 м</span>
           <div class="metric-text">
             <strong>Первая береговая линия</strong>
             <p>Все 6 домов стоят у воды — с террас открывается вид на озеро</p>
           </div>
         </div>
-        <div class="metric-item reveal">
+        <div class="metric-item reveal reveal-d3">
           <span class="metric-num">Тёрка</span>
           <div class="metric-text">
             <strong>Свой ресторан на берегу</strong>
             <p>Авторская и русская кухня, завтраки с 9:00 до 12:00 и панорама озера</p>
           </div>
         </div>
-        <div class="metric-item reveal">
+        <div class="metric-item reveal reveal-d4">
           <span class="metric-num">365</span>
           <div class="metric-text">
             <strong>Круглогодичный комфорт</strong>
@@ -218,9 +218,12 @@
         <div class="houses-grid">
 
           <!-- КАРТОЧКА 1: ДОМА ДЕРЕВЕНСКИЕ №1 И №2 -->
-          <article class="house-card reveal" data-house-card="derev">
-            <div class="house-media">
-              <img src="images/dom2/dom2_01.jpg" alt="Дом деревенский №1 и №2 из рубленного бревна на Селигере" loading="lazy" width="800" height="534">
+          <article class="house-card reveal reveal-d1" data-house-card="derev">
+            <div class="house-media" data-carousel="derev">
+              <img class="house-slide-img" src="images/dom2/dom2_01.jpg" alt="Дом деревенский №1 и №2 из рубленного бревна на Селигере" loading="lazy" width="800" height="534">
+              <button type="button" class="card-nav card-prev" aria-label="Предыдущее фото дома">‹</button>
+              <button type="button" class="card-nav card-next" aria-label="Следующее фото дома">›</button>
+              <div class="card-dots" aria-hidden="true"></div>
               <span class="house-pill">До 4 гостей · 50 м² · 1-я линия</span>
               <button type="button" class="house-photo-count" data-open-gallery="derev" aria-label="Открыть фотогалерею домов №1 и №2">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><circle cx="8.5" cy="10" r="1.5" fill="currentColor"/><path d="m21 15-4.5-4.5L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -249,9 +252,12 @@
           </article>
 
           <!-- КАРТОЧКА 2: ДОМА С ТЕРРАСОЙ №3 И №4 -->
-          <article class="house-card house-card-featured reveal" data-house-card="terrasa">
-            <div class="house-media">
-              <img src="images/dom3/dom3_01.jpg" alt="Просторный дом с террасой №3 и №4 на озере Селигер" loading="lazy" width="800" height="534">
+          <article class="house-card house-card-featured reveal reveal-d2" data-house-card="terrasa">
+            <div class="house-media" data-carousel="terrasa">
+              <img class="house-slide-img" src="images/dom3/dom3_01.jpg" alt="Просторный дом с террасой №3 и №4 на озере Селигер" loading="lazy" width="800" height="534">
+              <button type="button" class="card-nav card-prev" aria-label="Предыдущее фото дома">‹</button>
+              <button type="button" class="card-nav card-next" aria-label="Следующее фото дома">›</button>
+              <div class="card-dots" aria-hidden="true"></div>
               <span class="house-pill">До 6 гостей · 77 м² · Выбор семей</span>
               <button type="button" class="house-photo-count" data-open-gallery="terrasa" aria-label="Открыть фотогалерею домов №3 и №4">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><circle cx="8.5" cy="10" r="1.5" fill="currentColor"/><path d="m21 15-4.5-4.5L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -280,9 +286,12 @@
           </article>
 
           <!-- КАРТОЧКА 3: ТАУНХАУСЫ ЛОДКА-5 И ЛОДКА-6 -->
-          <article class="house-card reveal" data-house-card="lodka">
-            <div class="house-media">
-              <img src="images/lodka/lodka_01.jpg" alt="Двухэтажный таунхаус Лодка-5 и Лодка-6 с панорамными окнами" loading="lazy" width="800" height="533">
+          <article class="house-card reveal reveal-d3" data-house-card="lodka">
+            <div class="house-media" data-carousel="lodka">
+              <img class="house-slide-img" src="images/lodka/lodka_01.jpg" alt="Двухэтажный таунхаус Лодка-5 и Лодка-6 с панорамными окнами" loading="lazy" width="800" height="533">
+              <button type="button" class="card-nav card-prev" aria-label="Предыдущее фото дома">‹</button>
+              <button type="button" class="card-nav card-next" aria-label="Следующее фото дома">›</button>
+              <div class="card-dots" aria-hidden="true"></div>
               <span class="house-pill">До 5 гостей · 62 м² · 2 этажа</span>
               <button type="button" class="house-photo-count" data-open-gallery="lodka" aria-label="Открыть фотогалерею таунхаусов Лодка">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><circle cx="8.5" cy="10" r="1.5" fill="currentColor"/><path d="m21 15-4.5-4.5L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -542,18 +551,37 @@
           </p>
         </div>
 
-        <!-- Переключатель режимов: Живой модуль HomeReserve / Быстрый калькулятор -->
+        <!-- Переключатель режимов: Официальный календарь HomeReserve (по умолчанию) / Быстрый калькулятор -->
         <div class="booking-mode-switch reveal" role="tablist" aria-label="Способ бронирования">
-          <button type="button" class="mode-btn is-active" data-booking-mode="calc" role="tab" aria-selected="true">
-            Калькулятор и заявка в 1 клик
-          </button>
-          <button type="button" class="mode-btn" data-booking-mode="widget" role="tab" aria-selected="false">
+          <button type="button" class="mode-btn is-active" data-booking-mode="widget" role="tab" aria-selected="true">
             Официальный календарь HomeReserve (свободные даты)
+          </button>
+          <button type="button" class="mode-btn" data-booking-mode="calc" role="tab" aria-selected="false">
+            Калькулятор и заявка в WhatsApp
           </button>
         </div>
 
-        <!-- Панель 1: Премиальный калькулятор + Чек бронирования -->
-        <div class="booking-panel is-active" id="bookingCalcPanel">
+        <!-- Панель 1 (по умолчанию): Реальный официальный виджет бронирования HomeReserve -->
+        <div class="booking-panel is-active" id="bookingWidgetPanel">
+          <div class="hr-widget-shell">
+            <div class="hr-widget-top">
+              <div>
+                <strong>Официальная система бронирования «Дикий Гусь»</strong>
+                <span>Свободные дома и точные цены в реальном времени</span>
+              </div>
+              <div class="hr-top-actions">
+                <a href="tel:+79037406661" class="hr-help-link">+7 (903) 740-66-61</a>
+                <button type="button" class="hr-calc-switch" id="switchToCalcBtn">Рассчитать с баней →</button>
+              </div>
+            </div>
+            <div id="hr-widget" class="hr-widget-mount">
+              <div class="hr-loading" id="hrLoadingMsg">Загружаем живой календарь бронирования HomeReserve…</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Панель 2: Премиальный калькулятор + Чек бронирования -->
+        <div class="booking-panel" id="bookingCalcPanel" hidden>
           <div class="calc-luxury-grid">
             <div class="calc-form-box">
               <div class="calc-step-title">1. Выберите категорию дома</div>
@@ -679,22 +707,6 @@
             </aside>
           </div>
         </div>
-
-        <!-- Панель 2: Реальный официальный виджет бронирования HomeReserve -->
-        <div class="booking-panel" id="bookingWidgetPanel" hidden>
-          <div class="hr-widget-shell">
-            <div class="hr-widget-top">
-              <div>
-                <strong>Официальная система бронирования «Дикий Гусь»</strong>
-                <span>Свободные дома и точные цены в реальном времени</span>
-              </div>
-              <a href="tel:+79037406661" class="hr-help-link">Нужна помощь? +7 (903) 740-66-61</a>
-            </div>
-            <div id="hr-widget" class="hr-widget-mount">
-              <div class="hr-loading" id="hrLoadingMsg">Загружаем живой календарь бронирования HomeReserve…</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -715,7 +727,7 @@
         </div>
 
         <div class="reviews-grid">
-          <article class="review-card reveal">
+          <article class="review-card reveal reveal-d1">
             <div class="review-stars" aria-label="Оценка 5 из 5">★★★★★</div>
             <p class="review-text">
               «Прекрасное тихое место на собственном полуострове! Домики новые, идеально чистые, внутри пахнет свежим деревом. Есть абсолютно всё для комфортного отдыха. Ухоженная территория, мангалы у каждого дома — невероятно атмосферно.»
@@ -726,7 +738,7 @@
             </div>
           </article>
 
-          <article class="review-card reveal">
+          <article class="review-card reveal reveal-d2">
             <div class="review-stars" aria-label="Оценка 5 из 5">★★★★★</div>
             <p class="review-text">
               «Ресторан „Тёрка“ на берегу — настоящее открытие и самое цивилизованное место на Селигере. Очень вкусная еда, сытные завтраки, потрясающий вид из панорамных окон и душевный персонал. Для детей рядом качели и горка.»
@@ -737,7 +749,7 @@
             </div>
           </article>
 
-          <article class="review-card reveal">
+          <article class="review-card reveal reveal-d3">
             <div class="review-stars" aria-label="Оценка 5 из 5">★★★★★</div>
             <p class="review-text">
               «Отдыхали компанией и брали с собой собаку — очень удобно, что можно с питомцами. Настоящая русская баня на дровах с комнатой отдыха и видом на озеро — выше всяких похвал. Обязательно вернёмся на летнюю рыбалку!»
@@ -829,15 +841,16 @@
             </div>
 
             <div class="contacts-social-row">
-              <a href="https://vk.com/seligerdikiigus" target="_blank" rel="noopener noreferrer" class="btn-outline-bronze">Группа ВКонтакте</a>
-              <a href="https://yandex.ru/maps/org/dikiy_gus/6202917316/" target="_blank" rel="noopener noreferrer" class="btn-bronze">Построить маршрут в Яндексе</a>
+              <a href="https://yandex.ru/maps/?rtext=~57.0273%2C33.2853" target="_blank" rel="noopener noreferrer" class="btn-bronze">Построить маршрут в Яндексе</a>
+              <button type="button" class="btn-outline-bronze" id="copyGpsBtn" data-gps="57.0273, 33.2853">Скопировать GPS: 57.0273, 33.2853</button>
+              <a href="https://vk.com/seligerdikiigus" target="_blank" rel="noopener noreferrer" class="btn-outline-light">ВКонтакте</a>
             </div>
           </div>
 
           <div class="contacts-map reveal">
             <iframe
-              title="Гостевой дом Дикий Гусь на Яндекс Картах"
-              src="https://yandex.ru/map-widget/v1/?ll=33.035800%2C57.092800&z=13&pt=33.035800%2C57.092800%2Cpm2gnm"
+              title="Точное расположение гостевого дома Дикий Гусь на полуострове (Яндекс Карты)"
+              src="https://yandex.ru/map-widget/v1/?um=constructor%3Adb723d42638ff2a612cc8b341b1759f3c5cf7142bbe72b3341c0323f5e314b6e&amp;source=constructor"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
@@ -887,7 +900,7 @@
       </div>
       <div class="lightbox-stage">
         <button type="button" class="lb-nav lb-prev" id="lbPrev" aria-label="Предыдущее фото">‹</button>
-        <img id="lbImg" src="" alt="">
+        <img id="lbImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Просмотр фотографии">
         <button type="button" class="lb-nav lb-next" id="lbNext" aria-label="Следующее фото">›</button>
       </div>
       <div class="lightbox-caption" id="lbCaption"></div>
@@ -895,6 +908,6 @@
     </div>
   </dialog>
 
-  <script src="script.js?v=20261127-1" defer></script>
+  <script src="script.js?v=20261127-3" defer></script>
 </body>
 </html>

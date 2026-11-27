@@ -171,7 +171,13 @@
     burgerBtn.addEventListener('click', () => setMobileMenu(mobileMenu.hidden));
     mobileMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMobileMenu(false)));
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !mobileMenu.hidden) setMobileMenu(false);
+      if (e.key === 'Escape' && !mobileMenu.hidden) {
+        setMobileMenu(false);
+        burgerBtn.focus();
+      }
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 860 && !mobileMenu.hidden) setMobileMenu(false);
     });
   }
 
@@ -346,7 +352,9 @@
       state.checkOut = quickOut.value || state.checkOut;
       state.house = quickHouse.value;
       state.guests = Number(quickGuests.value);
+      presetPills.forEach((p) => p.classList.remove('is-active'));
       recalc();
+      setBookingMode('calc');
       document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
     });
   }
@@ -358,8 +366,16 @@
     });
   });
 
-  if (calcIn) calcIn.addEventListener('change', () => { state.checkIn = calcIn.value; recalc(); });
-  if (calcOut) calcOut.addEventListener('change', () => { state.checkOut = calcOut.value; recalc(); });
+  if (calcIn) calcIn.addEventListener('change', () => {
+    state.checkIn = calcIn.value;
+    presetPills.forEach((p) => p.classList.remove('is-active'));
+    recalc();
+  });
+  if (calcOut) calcOut.addEventListener('change', () => {
+    state.checkOut = calcOut.value;
+    presetPills.forEach((p) => p.classList.remove('is-active'));
+    recalc();
+  });
   if (calcGuests) calcGuests.addEventListener('change', () => { state.guests = Number(calcGuests.value); recalc(); });
   [addonBanya, addonPet, addonBreakfast].forEach((el) => el && el.addEventListener('change', recalc));
 
@@ -399,12 +415,59 @@
   recalc();
 
   /* =========================================================================
-     4. ПЕРЕКЛЮЧЕНИЕ НА РЕАЛЬНЫЙ ВИДЖЕТ БРОНИРОВАНИЯ HOMERESERVE (ЛЕНИВАЯ ЗАГРУЗКА)
+     3.5 МИНИ-КАРУСЕЛИ ФОТО ПРЯМО НА КАРТОЧКАХ ДОМОВ (СТРЕЛКИ + СВАЙП)
+     ========================================================================= */
+  document.querySelectorAll('[data-carousel]').forEach((mediaEl) => {
+    const houseKey = mediaEl.dataset.carousel;
+    const house = HOUSES[houseKey];
+    if (!house || !house.photos || house.photos.length < 2) return;
+    const previewPhotos = house.photos.slice(0, 5);
+    const imgEl = mediaEl.querySelector('.house-slide-img');
+    const prevBtn = mediaEl.querySelector('.card-prev');
+    const nextBtn = mediaEl.querySelector('.card-next');
+    const dotsBox = mediaEl.querySelector('.card-dots');
+    let idx = 0;
+
+    if (dotsBox) {
+      dotsBox.innerHTML = previewPhotos
+        .map((_, i) => `<span class="card-dot${i === 0 ? ' is-active' : ''}"></span>`)
+        .join('');
+    }
+    const dots = dotsBox ? Array.from(dotsBox.querySelectorAll('.card-dot')) : [];
+
+    function go(nextIdx) {
+      idx = (nextIdx + previewPhotos.length) % previewPhotos.length;
+      if (imgEl) {
+        imgEl.classList.add('is-fading');
+        setTimeout(() => {
+          imgEl.src = previewPhotos[idx].src;
+          imgEl.alt = previewPhotos[idx].cap;
+          imgEl.classList.remove('is-fading');
+        }, 120);
+      }
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); go(idx - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); go(idx + 1); });
+
+    // Поддержка свайпа пальцем на телефоне
+    let touchStartX = 0;
+    mediaEl.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    mediaEl.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) go(dx < 0 ? idx + 1 : idx - 1);
+    }, { passive: true });
+  });
+
+  /* =========================================================================
+     4. ПЕРЕКЛЮЧЕНИЕ НА РЕАЛЬНЫЙ ВИДЖЕТ БРОНИРОВАНИЯ HOMERESERVE (ПО УМОЛЧАНИЮ)
      ========================================================================= */
   const modeBtns = Array.from(document.querySelectorAll('.mode-btn'));
   const calcPanel = document.getElementById('bookingCalcPanel');
   const widgetPanel = document.getElementById('bookingWidgetPanel');
   const switchToWidgetBtn = document.getElementById('switchToWidgetBtn');
+  const switchToCalcBtn = document.getElementById('switchToCalcBtn');
   let hrLoaded = false;
 
   function loadHomeReserveWidget() {
@@ -422,7 +485,7 @@
     };
     script.onerror = () => {
       const msg = document.getElementById('hrLoadingMsg');
-      if (msg) msg.textContent = 'Календарь HomeReserve временно недоступен — позвоните по номеру +7 (903) 740-66-61.';
+      if (msg) msg.textContent = 'Календарь HomeReserve временно недоступен — воспользуйтесь калькулятором или позвоните +7 (903) 740-66-61.';
     };
     document.body.appendChild(script);
   }
@@ -440,6 +503,21 @@
 
   modeBtns.forEach((b) => b.addEventListener('click', () => setBookingMode(b.dataset.bookingMode)));
   if (switchToWidgetBtn) switchToWidgetBtn.addEventListener('click', () => setBookingMode('widget'));
+  if (switchToCalcBtn) switchToCalcBtn.addEventListener('click', () => setBookingMode('calc'));
+
+  // Автозагрузка живого виджета HomeReserve, как только секция бронирования приближается к экрану
+  const bookingSection = document.getElementById('booking');
+  if (bookingSection && 'IntersectionObserver' in window) {
+    const hrObs = new IntersectionObserver((entries, obs) => {
+      if (entries.some((e) => e.isIntersecting)) {
+        loadHomeReserveWidget();
+        obs.disconnect();
+      }
+    }, { rootMargin: '320px 0px' });
+    hrObs.observe(bookingSection);
+  } else {
+    loadHomeReserveWidget();
+  }
 
   /* =========================================================================
      5. ФОТОГАЛЕРЕЯ С ФИЛЬТРАМИ И НАТИВНЫЙ LIGHTBOX <dialog>
@@ -455,10 +533,12 @@
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = `gallery-tile${item.wide && filter === 'all' ? ' is-wide' : ''}`;
+      btn.style.transitionDelay = `${Math.min(idx * 45, 360)}ms`;
       btn.setAttribute('aria-label', `Открыть фото: ${item.cap}`);
       btn.innerHTML = `<img src="${item.src}" alt="${item.cap}" loading="lazy"><span class="gallery-tile-cap">${item.cap}</span>`;
       btn.addEventListener('click', () => openLightbox('Фотогалерея «Дикий Гусь»', list, idx));
       galleryGrid.appendChild(btn);
+      requestAnimationFrame(() => btn.classList.add('is-in'));
     });
   }
 
@@ -577,9 +657,43 @@
   });
 
   /* =========================================================================
-     7. ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ ПРИ СКРОЛЛЕ (REVEAL)
+     6.5 КОПИРОВАНИЕ GPS-КООРДИНАТ ПОЛУОСТРОВА В 1 КЛИК
+     ========================================================================= */
+  const copyGpsBtn = document.getElementById('copyGpsBtn');
+  if (copyGpsBtn) {
+    const origText = copyGpsBtn.textContent;
+    copyGpsBtn.addEventListener('click', async () => {
+      const coords = copyGpsBtn.dataset.gps || '57.0273, 33.2853';
+      try {
+        await navigator.clipboard.writeText(coords);
+        copyGpsBtn.textContent = `✓ Скопировано: ${coords}`;
+      } catch {
+        const ta = document.createElement('textarea');
+        ta.value = coords;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+        copyGpsBtn.textContent = `✓ Скопировано: ${coords}`;
+      }
+      setTimeout(() => { copyGpsBtn.textContent = origText; }, 2400);
+    });
+  }
+
+  /* =========================================================================
+     7. ПЛАВНОЕ КАСКАДНОЕ ПОЯВЛЕНИЕ КАРТОЧЕК И БЛОКОВ (REVEAL)
      ========================================================================= */
   const reveals = Array.from(document.querySelectorAll('.reveal'));
+  function revealVisible() {
+    const vh = window.innerHeight || 900;
+    reveals.forEach((el) => {
+      if (!el.classList.contains('is-in') && el.getBoundingClientRect().top < vh + 40) {
+        el.classList.add('is-in');
+      }
+    });
+  }
   if ('IntersectionObserver' in window && reveals.length) {
     const io = new IntersectionObserver((entries, obs) => {
       entries.forEach((entry) => {
@@ -587,17 +701,10 @@
         entry.target.classList.add('is-in');
         obs.unobserve(entry.target);
       });
-    }, { threshold: 0.04, rootMargin: '0px 0px -20px 0px' });
+    }, { threshold: 0.04, rootMargin: '0px 0px -10px 0px' });
     reveals.forEach((el) => io.observe(el));
-    // Страховка: если пользователь проскроллил быстро или прыгнул по якорю
-    window.addEventListener('scroll', () => {
-      const vh = window.innerHeight || 900;
-      reveals.forEach((el) => {
-        if (!el.classList.contains('is-in') && el.getBoundingClientRect().top < vh + 80) {
-          el.classList.add('is-in');
-        }
-      });
-    }, { passive: true });
+    window.addEventListener('scroll', revealVisible, { passive: true });
+    revealVisible();
   } else {
     reveals.forEach((el) => el.classList.add('is-in'));
   }
