@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гостевой дом «Дикий Гусь» — собственный полуостров 1,5 га на Селигере</title>
+  <meta name="description" content="Гостевой дом «Дикий Гусь» в д. Нижние Котицы на озере Селигер. Собственный полуостров 1,5 га, 6 современных домов и таунхаусов на первой линии (40 м до воды), ресторан «Тёрка», русская баня на дровах. Рейтинг 5.0 на Яндекс Картах. Тел. +7 (903) 740-66-61.">
+  <meta property="og:title" content="Гостевой дом «Дикий Гусь» — собственный полуостров на Селигере">
+  <meta property="og:description" content="Полуостров 1,5 га с трёх сторон омывается озером Селигер. 6 домов и таунхаусов на первой линии, ресторан авторской кухни «Тёрка», баня на берёзовых дровах. Прямое бронирование.">
+  <meta property="og:image" content="https://splitchespout.github.io/dikiy-gus/images/hero/hero_02.jpg">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0F1F18">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230F1F18'/%3E%3Cpath d='M5 23c3-1.8 6-1.8 9 0s6 1.8 9 0 3.5-1.2 4-1.5M7 17l9-8 9 8' fill='none' stroke='%23C59B6D' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261127-2">
+</head>
+<body id="top">
+
+  <!-- =====================================================================
+       ШАПКА САЙТА (ПРОЗРАЧНАЯ НА HERO, ИЗУМРУДНОЕ СТЕКЛО ПРИ СКРОЛЛЕ)
+       ===================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Гостевой дом Дикий Гусь — вернуться в начало">
+        <span class="brand-emblem" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M3 18c2.6-1.5 5.2-1.5 7.8 0s5.2 1.5 7.8 0c1-.6 1.8-.9 2.4-1.1M5 13.5 12 7l7 6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <strong>ДИКИЙ ГУСЬ</strong>
+          <span>Селигер · Полуостров 1,5 га</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Разделы сайта">
+        <a href="#houses">Дома</a>
+        <a href="#terka">Ресторан и баня</a>
+        <a href="#peninsula">Полуостров</a>
+        <a href="#booking">Бронирование</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="tel:+79037406661" class="header-phone" aria-label="Позвонить +7 (903) 740-66-61">
+          +7 (903) 740-66-61
+        </a>
+        <a href="#booking" class="btn-bronze btn-header">Забронировать</a>
+        <button type="button" class="burger-btn" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Мобильное меню -->
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <div class="container mobile-menu-inner">
+        <a href="#houses">Дома и таунхаусы</a>
+        <a href="#terka">Ресторан «Тёрка» и русская баня</a>
+        <a href="#peninsula">План полуострова и пляж</a>
+        <a href="#gallery">Фотогалерея</a>
+        <a href="#booking">Онлайн-бронирование</a>
+        <a href="#reviews">Отзывы гостей (5.0 ★)</a>
+        <a href="#contacts">Маршрут и контакты</a>
+        <div class="mobile-menu-cta">
+          <a href="tel:+79037406661" class="btn-bronze btn-full">Позвонить +7 (903) 740-66-61</a>
+          <a href="#booking" class="btn-outline-light btn-full" id="mobileBookLink">Выбрать даты онлайн</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =====================================================================
+         1. HERO — КИНЕМАТОГРАФИЧНАЯ ОБЛОЖКА ПОЛУОСТРОВА + СТЕКЛЯННАЯ ПАНЕЛЬ ДАТ
+         ===================================================================== -->
+    <section class="hero-section">
+      <div class="hero-backdrop" aria-hidden="true">
+        <img
+          id="heroSlideA"
+          class="hero-bg-img is-visible"
+          src="images/hero/hero_02.jpg"
+          alt="Полуостров гостевого дома Дикий Гусь с высоты птичьего полёта на озере Селигер"
+          width="1920"
+          height="720"
+          fetchpriority="high"
+        >
+        <img
+          id="heroSlideB"
+          class="hero-bg-img"
+          src="images/hero/hero_01.jpg"
+          alt=""
+          width="1920"
+          height="720"
+        >
+        <div class="hero-scrim"></div>
+      </div>
+
+      <div class="container hero-content">
+        <div class="hero-top-row">
+          <a href="#reviews" class="trust-pill">
+            <span class="star-bronze" aria-hidden="true">★</span>
+            <strong>5.0</strong>
+            <span class="dot">·</span>
+            <span>Яндекс Карты · «Хорошее место»</span>
+          </a>
+
+          <div class="hero-scene-tabs" role="tablist" aria-label="Ракурс обложки">
+            <button type="button" class="scene-tab is-active" data-slide="0" role="tab" aria-selected="true">Полуостров</button>
+            <button type="button" class="scene-tab" data-slide="1" role="tab" aria-selected="false">Дома</button>
+            <button type="button" class="scene-tab" data-slide="2" role="tab" aria-selected="false">Пляж</button>
+            <button type="button" class="scene-tab" data-slide="3" role="tab" aria-selected="false">Ресторан</button>
+          </div>
+        </div>
+
+        <div class="hero-center">
+          <div class="hero-eyebrow">Тверская область · д. Нижние Котицы · ул. Дикий Гусь, 1</div>
+          <h1 class="hero-title">Дикий Гусь</h1>
+          <p class="hero-subtitle">Собственный полуостров 1,5 га на Селигере</p>
+          <p class="hero-desc">
+            С трёх сторон омывается чистейшей водой озера Селигер. Шесть современных рубленых домов и таунхаусов в 40 метрах от берега, ресторан авторской кухни «Тёрка» и настоящая русская баня на берёзовых дровах.
+          </p>
+        </div>
+
+        <!-- Стеклянная панель быстрого подбора дат (связана с калькулятором и модулем бронирования) -->
+        <form class="hero-booking-bar" id="heroQuickForm" aria-label="Быстрый расчёт отдыха">
+          <div class="bar-field">
+            <label for="quickCheckIn">Заезд</label>
+            <input type="date" id="quickCheckIn" required>
+          </div>
+          <div class="bar-divider" aria-hidden="true"></div>
+          <div class="bar-field">
+            <label for="quickCheckOut">Выезд</label>
+            <input type="date" id="quickCheckOut" required>
+          </div>
+          <div class="bar-divider" aria-hidden="true"></div>
+          <div class="bar-field">
+            <label for="quickHouse">Категория дома</label>
+            <select id="quickHouse">
+              <option value="derev">Дом деревенский №1–2 (50 м² · до 4 чел.)</option>
+              <option value="terrasa" selected>Дом с террасой №3–4 (77 м² · до 6 чел.)</option>
+              <option value="lodka">Таунхаус «Лодка» №5–6 (62 м² · до 5 чел.)</option>
+            </select>
+          </div>
+          <div class="bar-divider" aria-hidden="true"></div>
+          <div class="bar-field bar-field-sm">
+            <label for="quickGuests">Гости</label>
+            <select id="quickGuests">
+              <option value="2">2 гостя</option>
+              <option value="3">3 гостя</option>
+              <option value="4" selected>4 гостя</option>
+              <option value="5">5 гостей</option>
+              <option value="6">6 гостей</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-bronze bar-submit">
+            Рассчитать и проверить даты
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         2. ПОЛОСА ПРЕИМУЩЕСТВ (ЦИФРЫ ПОЛУОСТРОВА)
+         ===================================================================== -->
+    <section class="metrics-strip" aria-label="Ключевые факты о гостевом доме">
+      <div class="container metrics-grid">
+        <div class="metric-item reveal">
+          <span class="metric-num">1,5 га</span>
+          <div class="metric-text">
+            <strong>Уединённый полуостров</strong>
+            <p>Омывается Селигером с трёх сторон, никакой суеты и чужих машин</p>
+          </div>
+        </div>
+        <div class="metric-item reveal">
+          <span class="metric-num">40 м</span>
+          <div class="metric-text">
+            <strong>Первая береговая линия</strong>
+            <p>Все 6 домов стоят у воды — с террас открывается вид на озеро</p>
+          </div>
+        </div>
+        <div class="metric-item reveal">
+          <span class="metric-num">Тёрка</span>
+          <div class="metric-text">
+            <strong>Свой ресторан на берегу</strong>
+            <p>Авторская и русская кухня, завтраки с 9:00 до 12:00 и панорама озера</p>
+          </div>
+        </div>
+        <div class="metric-item reveal">
+          <span class="metric-num">365</span>
+          <div class="metric-text">
+            <strong>Круглогодичный комфорт</strong>
+            <p>Тёплые рубленые дома, русская баня на дровах, летняя и зимняя рыбалка</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         3. КОТТЕДЖИ И ТАУНХАУСЫ НА ПЕРВОЙ ЛИНИИ (СВЕТЛАЯ КРЕМОВАЯ СЕКЦИЯ)
+         ===================================================================== -->
+    <section class="section-cream" id="houses">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-kicker">Размещение на первой линии</span>
+            <h2 class="section-title">Дома и таунхаусы</h2>
+          </div>
+          <p class="section-lead">
+            Шесть современных домов для круглогодичного отдыха с полноценными кухнями, террасами с видом на Селигер и персональной мангальной зоной у каждого дома. Минимальный срок аренды — 2 суток.
+          </p>
+        </div>
+
+        <div class="houses-grid">
+
+          <!-- КАРТОЧКА 1: ДОМА ДЕРЕВЕНСКИЕ №1 И №2 -->
+          <article class="house-card reveal" data-house-card="derev">
+            <div class="house-media">
+              <img src="images/dom2/dom2_01.jpg" alt="Дом деревенский №1 и №2 из рубленного бревна на Селигере" loading="lazy" width="800" height="534">
+              <span class="house-pill">До 4 гостей · 50 м² · 1-я линия</span>
+              <button type="button" class="house-photo-count" data-open-gallery="derev" aria-label="Открыть фотогалерею домов №1 и №2">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><circle cx="8.5" cy="10" r="1.5" fill="currentColor"/><path d="m21 15-4.5-4.5L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <span>10 фото</span>
+              </button>
+            </div>
+            <div class="house-body">
+              <div class="house-title-row">
+                <h3>Дома деревенские №1 и №2</h3>
+                <span class="house-price">от 4 800 ₽ <em>/ сут</em></span>
+              </div>
+              <p class="house-desc">
+                Уютные одноэтажные срубы из натурального рубленного бревна с ароматом дерева и видом на Селигер. Две отдельные спальни (двуспальная кровать + две односпальные) и светлая кухня-гостиная.
+              </p>
+              <ul class="house-specs">
+                <li>50 м² · 1 этаж · 2 спальни</li>
+                <li>Кухня с плитой, СВЧ и посудой</li>
+                <li>Терраса со столом и свой мангал</li>
+                <li>Санузел, душ, горячая вода, ТВ</li>
+              </ul>
+              <div class="house-actions">
+                <button type="button" class="btn-outline-dark" data-open-gallery="derev">Смотреть внутри</button>
+                <button type="button" class="btn-emerald" data-select-house="derev">Забронировать</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- КАРТОЧКА 2: ДОМА С ТЕРРАСОЙ №3 И №4 -->
+          <article class="house-card house-card-featured reveal" data-house-card="terrasa">
+            <div class="house-media">
+              <img src="images/dom3/dom3_01.jpg" alt="Просторный дом с террасой №3 и №4 на озере Селигер" loading="lazy" width="800" height="534">
+              <span class="house-pill">До 6 гостей · 77 м² · Выбор семей</span>
+              <button type="button" class="house-photo-count" data-open-gallery="terrasa" aria-label="Открыть фотогалерею домов №3 и №4">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><circle cx="8.5" cy="10" r="1.5" fill="currentColor"/><path d="m21 15-4.5-4.5L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <span>10 фото</span>
+              </button>
+            </div>
+            <div class="house-body">
+              <div class="house-title-row">
+                <h3>Дома с террасой №3 и №4</h3>
+                <span class="house-price">от 6 800 ₽ <em>/ сут</em></span>
+              </div>
+              <p class="house-desc">
+                Просторные одноэтажные дома повышенного комфорта с широкой крытой террасой и панорамой на озеро. Две изолированные спальни + просторная кухня-гостиная с двуспальным диваном.
+              </p>
+              <ul class="house-specs">
+                <li>77 м² · 1 этаж · 2 спальни + гостиная</li>
+                <li>Просторная крытая терраса на озеро</li>
+                <li>Полностью оборудованная кухня</li>
+                <li>Своя мангальная зона у дома</li>
+              </ul>
+              <div class="house-actions">
+                <button type="button" class="btn-outline-dark" data-open-gallery="terrasa">Смотреть внутри</button>
+                <button type="button" class="btn-emerald" data-select-house="terrasa">Забронировать</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- КАРТОЧКА 3: ТАУНХАУСЫ ЛОДКА-5 И ЛОДКА-6 -->
+          <article class="house-card reveal" data-house-card="lodka">
+            <div class="house-media">
+              <img src="images/lodka/lodka_01.jpg" alt="Двухэтажный таунхаус Лодка-5 и Лодка-6 с панорамными окнами" loading="lazy" width="800" height="533">
+              <span class="house-pill">До 5 гостей · 62 м² · 2 этажа</span>
+              <button type="button" class="house-photo-count" data-open-gallery="lodka" aria-label="Открыть фотогалерею таунхаусов Лодка">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><circle cx="8.5" cy="10" r="1.5" fill="currentColor"/><path d="m21 15-4.5-4.5L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <span>10 фото</span>
+              </button>
+            </div>
+            <div class="house-body">
+              <div class="house-title-row">
+                <h3>Таунхаусы «Лодка-5» и «Лодка-6»</h3>
+                <span class="house-price">от 5 800 ₽ <em>/ сут</em></span>
+              </div>
+              <p class="house-desc">
+                Двухэтажные светлые номера с панорамным остеклением второго этажа и тёплым полом. Наверху — уютная спальная зона с кроватями-подиумами и видом на водную гладь, внизу — гостиная и терраса.
+              </p>
+              <ul class="house-specs">
+                <li>62 м² · 2 этажа · тёплый пол</li>
+                <li>Панорамное окно на озеро наверху</li>
+                <li>Кухня-гостиная с диваном и ТВ</li>
+                <li>Терраса со столом, лавками и мангалом</li>
+              </ul>
+              <div class="house-actions">
+                <button type="button" class="btn-outline-dark" data-open-gallery="lodka">Смотреть внутри</button>
+                <button type="button" class="btn-emerald" data-select-house="lodka">Забронировать</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Плашка условий проживания -->
+        <div class="stay-rules-bar reveal">
+          <div class="rule-chip">
+            <strong>Заезд / Выезд</strong>
+            <span>Заезд с 15:00 · Выезд до 13:00</span>
+          </div>
+          <div class="rule-chip">
+            <strong>Минимальный срок</strong>
+            <span>От 2 суток круглый год</span>
+          </div>
+          <div class="rule-chip">
+            <strong>Включено в дом</strong>
+            <span>Постельное бельё, полотенца, посуда, мангал</span>
+          </div>
+          <div class="rule-chip">
+            <strong>С питомцами</strong>
+            <span>Размещение с животными по согласованию</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         4. ТЁМНАЯ ПРЕМИАЛЬНАЯ СЕКЦИЯ: РЕСТОРАН «ТЁРКА» И РУССКАЯ БАНЯ
+         ===================================================================== -->
+    <section class="section-emerald" id="terka">
+      <div class="container">
+        <div class="section-head section-head-light reveal">
+          <div>
+            <span class="section-kicker section-kicker-bronze">Гастрономия и банный ритуал</span>
+            <h2 class="section-title section-title-light">Ресторан «Тёрка» и русская баня</h2>
+          </div>
+          <p class="section-lead section-lead-light">
+            Вам не придётся думать о готовке или досуге — прямо на берегу полуострова работает авторский ресторан с завтраками и настоящая бревенчатая баня на берёзовых дровах.
+          </p>
+        </div>
+
+        <div class="luxury-duo-grid">
+
+          <!-- БЛОК РЕСТОРАНА ТЁРКА -->
+          <article class="luxury-feature-card reveal">
+            <div class="luxury-collage">
+              <div class="collage-main">
+                <img src="images/hero/hero_05.jpg" alt="Ресторан Тёрка на берегу озера Селигер в вечерних огнях" loading="lazy" width="1921" height="721">
+                <span class="luxury-badge">ул. Дикий Гусь, д. 6 · на берегу</span>
+              </div>
+              <div class="collage-sub-row">
+                <img src="images/restaurant/restaurant_01.jpg" alt="Борщ с салом и чесноком в ресторане Тёрка" loading="lazy" width="1400" height="853">
+                <img src="images/restaurant/restaurant_04.jpg" alt="Фирменные завтраки в ресторане Тёрка" loading="lazy" width="1400" height="958">
+                <img src="images/restaurant/restaurant_07.jpg" alt="Авторские чаи с ягодами и травами" loading="lazy" width="1400" height="933">
+              </div>
+            </div>
+
+            <div class="luxury-feature-body">
+              <div class="luxury-header-line">
+                <h3>Ресторан «Тёрка»</h3>
+                <a href="tel:+79043502255" class="luxury-phone">+7 (904) 350-22-55</a>
+              </div>
+              <p>
+                Одно из самых любимых гастрономических мест на Селигере по отзывам гостей. Авторская и русская кухня из локальных продуктов: фирменные блюда из утки, наваристый борщ, суточные щи, томлёные рёбрышки, свежая селигерская рыба и домашние завтраки с 9:00 до 12:00.
+              </p>
+              <div class="luxury-tags">
+                <span>Завтраки 09:00 – 12:00</span>
+                <span>Панорама озера</span>
+                <span>Детские качели и горка рядом</span>
+                <span>Авторские чаи и домашние десерты</span>
+              </div>
+              <div class="luxury-footer-actions">
+                <button type="button" class="btn-outline-bronze" data-open-gallery="restaurant">Смотреть блюда и зал (10 фото)</button>
+                <a href="tel:+79043502255" class="text-link-bronze">Забронировать столик →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- БЛОК РУССКОЙ БАНИ -->
+          <article class="luxury-feature-card reveal">
+            <div class="luxury-collage">
+              <div class="collage-main">
+                <img src="images/banya/banya_03.jpg" alt="Интерьер рубленой русской бани Дикий Гусь с комнатой отдыха и печью" loading="lazy" width="800" height="600">
+                <span class="luxury-badge">На берёзовых дровах · до 6 гостей</span>
+              </div>
+              <div class="collage-sub-row">
+                <img src="images/banya/banya_01.jpg" alt="Рубленая русская баня на берегу Селигера" loading="lazy" width="800" height="450">
+                <img src="images/banya/banya_04.jpg" alt="Большая комната отдыха в бане с панорамным окном на озеро" loading="lazy" width="800" height="600">
+                <img src="images/banya/banya_06.jpg" alt="Дубовый стол и тёплая атмосфера русской бани" loading="lazy" width="800" height="600">
+              </div>
+            </div>
+
+            <div class="luxury-feature-body">
+              <div class="luxury-header-line">
+                <h3>Настоящая русская баня</h3>
+                <span class="luxury-price-pill">от 5 000 ₽ / 2 часа</span>
+              </div>
+              <p>
+                Большая рубленая баня «по-белому» с правильной печью, дающей мягкий, влажный оздоравливающий пар. Топится исключительно берёзовыми дровами при закрытой парилке. Внутри — просторная комната отдыха с массивным столом, чаем с баранками и огромным панорамным окном на Селигер.
+              </p>
+              <div class="luxury-tags">
+                <span>Вместимость до 6 чел.</span>
+                <span>Берёзовые дрова</span>
+                <span>Панорамное окно на озеро</span>
+                <span>Душ, горячая вода, своя терраса</span>
+              </div>
+              <div class="luxury-footer-actions">
+                <button type="button" class="btn-outline-bronze" data-open-gallery="banya">Смотреть фото бани</button>
+                <a href="#booking" class="text-link-bronze">Добавить баню к отдыху →</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. ПОЛУОСТРОВ 1,5 ГА: ПЛЯЖ, РЫБАЛКА, ОТДЫХ И ПЛАН-СХЕМА ТЕРРИТОРИИ
+         ===================================================================== -->
+    <section class="section-cream" id="peninsula">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-kicker">Территория и досуг на воде</span>
+            <h2 class="section-title">Ваш собственный полуостров</h2>
+          </div>
+          <p class="section-lead">
+            1,5 гектара ухоженного берега вдали от шумных трасс. Чистейший воздух сосновых боров, оборудованный песчаный пляж с шезлонгами, собственный причал и трофейная рыбалка в любое время года.
+          </p>
+        </div>
+
+        <div class="peninsula-grid">
+          <!-- Левая часть: 4 карточки активностей -->
+          <div class="activities-bento">
+            <div class="activity-card reveal">
+              <img src="images/hero/hero_03.jpg" alt="Собственный песчаный пляж с шезлонгами и пирсом на озере Селигер" loading="lazy" width="1920" height="721">
+              <div class="activity-overlay">
+                <span class="activity-tag">Первая линия</span>
+                <h3>Песчаный пляж и пирс</h3>
+                <p>Шезлонги, пологий заход в воду, причал для лодок и вечерний костровой очаг на берегу.</p>
+              </div>
+            </div>
+
+            <div class="activity-card reveal">
+              <img src="images/fishing/fishing_06.jpg" alt="Трофейная рыбалка на озере Селигер — щука и окунь" loading="lazy" width="800" height="600">
+              <div class="activity-overlay">
+                <span class="activity-tag">Лето и зима</span>
+                <h3>Селигерская рыбалка</h3>
+                <p>Щука, судак, лещ и крупный окунь прямо у берега полуострова и с лодки в тихих заливах.</p>
+              </div>
+            </div>
+
+            <div class="activity-card reveal">
+              <img src="images/territory/territory_16.jpg" alt="Водные прогулки на лодке и катере по Селигеру" loading="lazy" width="800" height="450">
+              <div class="activity-overlay">
+                <span class="activity-tag">На воде</span>
+                <h3>Лодки, сапы и катамараны</h3>
+                <p>Прокат водного инвентаря, велопрогулки по лесным тропам, сбор белых грибов и ягод.</p>
+              </div>
+            </div>
+
+            <div class="activity-card reveal">
+              <img src="images/territory/territory_13.jpg" alt="Костровая зона отдыха на территории гостевого дома Дикий Гусь" loading="lazy" width="800" height="533">
+              <div class="activity-overlay">
+                <span class="activity-tag">Вечер у огня</span>
+                <h3>Костровое место и мангалы</h3>
+                <p>Оборудованный каменный очаг с брёвнами для душевных вечеров под звёздами и мангал у каждого дома.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Правая часть: интерактивный план-схема полуострова -->
+          <aside class="map-plan-card reveal">
+            <div class="map-plan-head">
+              <span class="section-kicker">Схема территории</span>
+              <h3>План полуострова «Дикий Гусь»</h3>
+              <p>Посмотрите расположение всех 6 домов, ресторана «Тёрка», бани, парковки и береговой линии.</p>
+            </div>
+            <button type="button" class="map-plan-img-btn" data-open-single="images/territory/territory_14.jpg" data-single-caption="План-схема полуострова гостевого дома «Дикий Гусь» (1,5 га)">
+              <img src="images/territory/territory_14.jpg" alt="План-схема территории гостевого дома Дикий Гусь" loading="lazy" width="800" height="510">
+              <span class="zoom-hint">Нажмите, чтобы увеличить схему</span>
+            </button>
+            <ul class="plan-legend">
+              <li><span>1–2</span> Дома деревенские (50 м²)</li>
+              <li><span>3–4</span> Дома с террасой (77 м²)</li>
+              <li><span>5–6</span> Таунхаусы «Лодка» (62 м²)</li>
+              <li><span>★</span> Ресторан «Тёрка», баня и пляж</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         6. ФОТОГАЛЕРЕЯ С ФИЛЬТРАМИ (РЕАЛЬНЫЕ ФОТО СЕМЕЙНОГО ОТДЫХА И ПРИРОДЫ)
+         ===================================================================== -->
+    <section class="section-sand" id="gallery">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-kicker">Атмосфера в кадрах</span>
+            <h2 class="section-title">Фотогалерея</h2>
+          </div>
+          <div class="gallery-filters" role="tablist" aria-label="Фильтр фотогалереи">
+            <button type="button" class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">Все фото</button>
+            <button type="button" class="filter-btn" data-filter="peninsula" role="tab" aria-selected="false">Полуостров</button>
+            <button type="button" class="filter-btn" data-filter="houses" role="tab" aria-selected="false">Дома</button>
+            <button type="button" class="filter-btn" data-filter="restaurant" role="tab" aria-selected="false">Ресторан «Тёрка»</button>
+            <button type="button" class="filter-btn" data-filter="banya" role="tab" aria-selected="false">Баня и рыбалка</button>
+          </div>
+        </div>
+
+        <div class="gallery-mosaic" id="galleryGrid">
+          <!-- Карточки наполняются и фильтруются через script.js для чистого Lightbox -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         7. ОНЛАЙН-БРОНИРОВАНИЕ (ЖИВОЙ МОДУЛЬ HOMERESERVE + КАЛЬКУЛЯТОР ЗАЯВКИ)
+         ===================================================================== -->
+    <section class="section-emerald section-booking" id="booking">
+      <div class="container">
+        <div class="section-head section-head-light reveal">
+          <div>
+            <span class="section-kicker section-kicker-bronze">Прямые цены от собственника без комиссий</span>
+            <h2 class="section-title section-title-light">Онлайн-бронирование и расчёт</h2>
+          </div>
+          <p class="section-lead section-lead-light">
+            Выберите даты в официальном модуле свободных дат гостевого дома или рассчитайте ориентировочную стоимость и отправьте готовую заявку напрямую администратору.
+          </p>
+        </div>
+
+        <!-- Переключатель режимов: Живой модуль HomeReserve / Быстрый калькулятор -->
+        <div class="booking-mode-switch reveal" role="tablist" aria-label="Способ бронирования">
+          <button type="button" class="mode-btn is-active" data-booking-mode="calc" role="tab" aria-selected="true">
+            Калькулятор и заявка в 1 клик
+          </button>
+          <button type="button" class="mode-btn" data-booking-mode="widget" role="tab" aria-selected="false">
+            Официальный календарь HomeReserve (свободные даты)
+          </button>
+        </div>
+
+        <!-- Панель 1: Премиальный калькулятор + Чек бронирования -->
+        <div class="booking-panel is-active" id="bookingCalcPanel">
+          <div class="calc-luxury-grid">
+            <div class="calc-form-box">
+              <div class="calc-step-title">1. Выберите категорию дома</div>
+              <div class="calc-house-cards" role="radiogroup" aria-label="Категория дома">
+                <button type="button" class="calc-house-btn" data-calc-house="derev" role="radio" aria-checked="false">
+                  <strong>Дом деревенский №1–2</strong>
+                  <span>50 м² · до 4 чел.</span>
+                  <em>от 4 800 ₽/сут</em>
+                </button>
+                <button type="button" class="calc-house-btn is-active" data-calc-house="terrasa" role="radio" aria-checked="true">
+                  <strong>Дом с террасой №3–4</strong>
+                  <span>77 м² · до 6 чел.</span>
+                  <em>от 6 800 ₽/сут</em>
+                </button>
+                <button type="button" class="calc-house-btn" data-calc-house="lodka" role="radio" aria-checked="false">
+                  <strong>Таунхаус «Лодка» №5–6</strong>
+                  <span>62 м² · до 5 чел.</span>
+                  <em>от 5 800 ₽/сут</em>
+                </button>
+              </div>
+
+              <div class="calc-step-title">2. Даты отдыха и количество гостей</div>
+              <div class="calc-inputs-row">
+                <div class="calc-field">
+                  <label for="calcIn">Дата заезда (с 15:00)</label>
+                  <input type="date" id="calcIn">
+                </div>
+                <div class="calc-field">
+                  <label for="calcOut">Дата выезда (до 13:00)</label>
+                  <input type="date" id="calcOut">
+                </div>
+                <div class="calc-field">
+                  <label for="calcGuestsSelect">Гостей</label>
+                  <select id="calcGuestsSelect">
+                    <option value="2">2 гостя</option>
+                    <option value="3">3 гостя</option>
+                    <option value="4" selected>4 гостя</option>
+                    <option value="5">5 гостей</option>
+                    <option value="6">6 гостей</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="preset-row" role="group" aria-label="Быстрый выбор периода">
+                <button type="button" class="preset-pill is-active" data-preset="weekend">Ближайшие выходные</button>
+                <button type="button" class="preset-pill" data-preset="ny">Новогодние праздники</button>
+                <button type="button" class="preset-pill" data-preset="may">Майские праздники</button>
+                <button type="button" class="preset-pill" data-preset="summer">Летний сезон (июль)</button>
+              </div>
+
+              <div class="calc-step-title">3. Дополнительно к отдыху</div>
+              <div class="addons-row">
+                <label class="addon-check">
+                  <input type="checkbox" id="addonBanya">
+                  <span>
+                    <strong>Русская баня (2 часа)</strong>
+                    <small>+5 000 ₽ · на берёзовых дровах</small>
+                  </span>
+                </label>
+                <label class="addon-check">
+                  <input type="checkbox" id="addonPet">
+                  <span>
+                    <strong>Заезд с питомцем</strong>
+                    <small>По согласованию с администратором</small>
+                  </span>
+                </label>
+                <label class="addon-check">
+                  <input type="checkbox" id="addonBreakfast">
+                  <span>
+                    <strong>Столик на завтрак в «Тёрке»</strong>
+                    <small>Ежедневно с 09:00 до 12:00</small>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Правая карточка: Чек расчёта и мгновенная отправка -->
+            <aside class="calc-summary-box">
+              <div class="summary-kicker">Предварительный расчёт</div>
+              <h3 id="sumHouseTitle">Дом с террасой №3 или №4 (77 м²)</h3>
+              <div class="summary-season-badge" id="sumSeasonBadge">Низкий сезон · от 2 суток</div>
+
+              <dl class="summary-lines">
+                <div>
+                  <dt>Период отдыха</dt>
+                  <dd id="sumDates">—</dd>
+                </div>
+                <div>
+                  <dt>Количество ночей</dt>
+                  <dd id="sumNights">2 ночи</dd>
+                </div>
+                <div>
+                  <dt>Гости</dt>
+                  <dd id="sumGuests">4 гостя</dd>
+                </div>
+                <div>
+                  <dt>Проживание</dt>
+                  <dd id="sumStayPrice">13 600 ₽</dd>
+                </div>
+                <div id="sumBanyaRow" hidden>
+                  <dt>Русская баня (2 ч.)</dt>
+                  <dd>5 000 ₽</dd>
+                </div>
+              </dl>
+
+              <div class="summary-total">
+                <span>Ориентировочно итого</span>
+                <strong id="sumTotalPrice">13 600 ₽</strong>
+              </div>
+              <p class="summary-note">
+                Точную стоимость и наличие свободных домиков на ваши даты подтверждает администратор или живой календарь HomeReserve.
+              </p>
+
+              <div class="summary-cta-stack">
+                <a href="tel:+79037406661" class="btn-bronze btn-full">Позвонить +7 (903) 740-66-61</a>
+                <a href="https://wa.me/79037406661" target="_blank" rel="noopener noreferrer" class="btn-outline-light btn-full" id="waBookBtn">
+                  Отправить заявку в WhatsApp
+                </a>
+                <button type="button" class="btn-ghost-bronze" id="switchToWidgetBtn">
+                  Проверить свободные даты в календаре HomeReserve →
+                </button>
+              </div>
+            </aside>
+          </div>
+        </div>
+
+        <!-- Панель 2: Реальный официальный виджет бронирования HomeReserve -->
+        <div class="booking-panel" id="bookingWidgetPanel" hidden>
+          <div class="hr-widget-shell">
+            <div class="hr-widget-top">
+              <div>
+                <strong>Официальная система бронирования «Дикий Гусь»</strong>
+                <span>Свободные дома и точные цены в реальном времени</span>
+              </div>
+              <a href="tel:+79037406661" class="hr-help-link">Нужна помощь? +7 (903) 740-66-61</a>
+            </div>
+            <div id="hr-widget" class="hr-widget-mount">
+              <div class="hr-loading" id="hrLoadingMsg">Загружаем живой календарь бронирования HomeReserve…</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         8. ОТЗЫВЫ ГОСТЕЙ (ЯНДЕКС КАРТЫ 5.0 ★)
+         ===================================================================== -->
+    <section class="section-cream" id="reviews">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-kicker">Рейтинг 5.0 на Яндекс Картах</span>
+            <h2 class="section-title">Что говорят наши гости</h2>
+          </div>
+          <a href="https://yandex.ru/maps/org/dikiy_gus/6202917316/" target="_blank" rel="noopener noreferrer" class="yandex-badge-link">
+            <span class="star-bronze">★★★★★</span>
+            <span><strong>5.0</strong> · Смотреть все отзывы на Яндекс Картах ↗</span>
+          </a>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card reveal">
+            <div class="review-stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <p class="review-text">
+              «Прекрасное тихое место на собственном полуострове! Домики новые, идеально чистые, внутри пахнет свежим деревом. Есть абсолютно всё для комфортного отдыха. Ухоженная территория, мангалы у каждого дома — невероятно атмосферно.»
+            </p>
+            <div class="review-author">
+              <strong>Елена С.</strong>
+              <span>Яндекс Карты · Семейный отдых</span>
+            </div>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="review-stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <p class="review-text">
+              «Ресторан „Тёрка“ на берегу — настоящее открытие и самое цивилизованное место на Селигере. Очень вкусная еда, сытные завтраки, потрясающий вид из панорамных окон и душевный персонал. Для детей рядом качели и горка.»
+            </p>
+            <div class="review-author">
+              <strong>Дмитрий К.</strong>
+              <span>Яндекс Карты · Отдых с семьёй</span>
+            </div>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="review-stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <p class="review-text">
+              «Отдыхали компанией и брали с собой собаку — очень удобно, что можно с питомцами. Настоящая русская баня на дровах с комнатой отдыха и видом на озеро — выше всяких похвал. Обязательно вернёмся на летнюю рыбалку!»
+            </p>
+            <div class="review-author">
+              <strong>Андрей М.</strong>
+              <span>Яндекс Путешествия · Отдых компанией</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         9. ЧАСТЫЕ ВОПРОСЫ (FAQ НАТИВНЫЙ ACCORDION)
+         ===================================================================== -->
+    <section class="section-sand" id="faq">
+      <div class="container faq-layout">
+        <div class="faq-intro reveal">
+          <span class="section-kicker">Полезно знать до поездки</span>
+          <h2 class="section-title">Частые вопросы</h2>
+          <p>Собрали ответы на главные вопросы гостей по заезду, питанию в ресторане, бане и рыбалке на Селигере.</p>
+          <a href="tel:+79037406661" class="btn-emerald">Задать вопрос по телефону</a>
+        </div>
+
+        <div class="faq-list reveal">
+          <details class="faq-item" open>
+            <summary>Какой минимальный срок аренды дома и во сколько заезд?</summary>
+            <p>Минимальный срок аренды любого дома или таунхауса — 2 суток. Время заезда — с 15:00, время выезда — до 13:00 (возможен ранний заезд или поздний выезд по предварительному согласованию).</p>
+          </details>
+          <details class="faq-item">
+            <summary>Можно ли приехать с домашними животными?</summary>
+            <p>Да, мы с радостью принимаем гостей с питомцами по предварительному согласованию при бронировании.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Как организовано питание на базе?</summary>
+            <p>В каждом доме есть полноценная кухня (электроплита, холодильник, микроволновка, чайник и вся посуда) и свой мангал на улице. А в двух шагах на берегу работает наш ресторан «Тёрка» — завтраки с 09:00 до 12:00, обеды и ужины по авторскому меню.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Что входит в стоимость проживания в доме?</summary>
+            <p>В комплектацию каждого дома входят постельное бельё, полотенца, вся кухонная посуда и бытовая техника, собственная терраса со столом и лавками, мангальная зона, парковка на территории и пользование пляжем полуострова.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Как далеко находится озеро Селигер от домов?</summary>
+            <p>Гостевой дом расположен на собственном полуострове площадью 1,5 га, который с трёх сторон окружён озером Селигер. Все дома построены на первой линии — расстояние до воды около 40 метров.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         10. КОНТАКТЫ И ПОДРОБНЫЙ МАРШРУТ ИЗ МОСКВЫ
+         ===================================================================== -->
+    <section class="section-emerald section-contacts" id="contacts">
+      <div class="container">
+        <div class="contacts-grid">
+          <div class="contacts-info reveal">
+            <span class="section-kicker section-kicker-bronze">Ждём вас на Селигере</span>
+            <h2 class="section-title section-title-light">Контакты и маршрут</h2>
+
+            <div class="contact-cards">
+              <div class="contact-row">
+                <span>Бронирование домов и бани</span>
+                <a href="tel:+79037406661" class="contact-big">+7 (903) 740-66-61</a>
+              </div>
+              <div class="contact-row">
+                <span>Ресторан «Тёрка»</span>
+                <a href="tel:+79043502255" class="contact-big">+7 (904) 350-22-55</a>
+              </div>
+              <div class="contact-row">
+                <span>Электронная почта</span>
+                <a href="mailto:seligerdikiigus@mail.ru">seligerdikiigus@mail.ru</a>
+              </div>
+              <div class="contact-row">
+                <span>Адрес полуострова</span>
+                <p>Тверская область, Осташковский округ, д. Нижние Котицы, ул. Дикий Гусь, д. 1 / д. 4</p>
+              </div>
+            </div>
+
+            <div class="route-tabs" role="tablist" aria-label="Выбор маршрута из Москвы">
+              <button type="button" class="route-tab is-active" data-route="riga" role="tab" aria-selected="true">По Новорижскому (340 км)</button>
+              <button type="button" class="route-tab" data-route="leningrad" role="tab" aria-selected="false">По М-11 / Ленинградскому (330 км)</button>
+            </div>
+            <div class="route-box" id="routeRiga">
+              От МКАД по Новорижскому шоссе (М-9) до г. Ржев (222 км), далее поворот направо, на Площади Революции налево на Р-87 до п. Селижарово. Через 24 км после Селижарово поворот направо по указателю «д. Нижние Котицы», 1,2 км через мост р. Селижаровка и далее по указателям «ул. Дикий Гусь».
+            </div>
+            <div class="route-box" id="routeLeningrad" hidden>
+              От МКАД по платной трассе М-11, по объездной Твери через Торжок и Кувшиново в сторону Осташкова. Не доезжая 10 км до Осташкова — поворот налево на Ржев, через 6 км налево по указателю «д. Нижние Котицы», 1,2 км через мост и по указателям «ул. Дикий Гусь».
+            </div>
+
+            <div class="contacts-social-row">
+              <a href="https://vk.com/seligerdikiigus" target="_blank" rel="noopener noreferrer" class="btn-outline-bronze">Группа ВКонтакте</a>
+              <a href="https://yandex.ru/maps/org/dikiy_gus/6202917316/" target="_blank" rel="noopener noreferrer" class="btn-bronze">Построить маршрут в Яндексе</a>
+            </div>
+          </div>
+
+          <div class="contacts-map reveal">
+            <iframe
+              title="Гостевой дом Дикий Гусь на Яндекс Картах"
+              src="https://yandex.ru/map-widget/v1/?ll=33.035800%2C57.092800&z=13&pt=33.035800%2C57.092800%2Cpm2gnm"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================================
+       ПОДВАЛ САЙТА
+       ===================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <strong>ДИКИЙ ГУСЬ · СЕЛИГЕР</strong>
+        <span>Тверская обл., Осташковский р-н, д. Нижние Котицы, ул. Дикий Гусь, д. 1</span>
+      </div>
+      <div class="footer-links">
+        <a href="#houses">Дома</a>
+        <a href="#terka">Ресторан «Тёрка»</a>
+        <a href="#peninsula">Полуостров</a>
+        <a href="#booking">Бронирование</a>
+        <a href="tel:+79037406661">+7 (903) 740-66-61</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Плавающая мобильная панель быстрого действия -->
+  <div class="mobile-sticky-bar" aria-label="Быстрая связь">
+    <a href="tel:+79037406661" class="sticky-call">Позвонить</a>
+    <a href="#booking" class="sticky-book">Выбрать даты</a>
+  </div>
+
+  <!-- =====================================================================
+       LIGHTBOX-ГАЛЕРЕЯ НА НАТИВНОМ <dialog>
+       ===================================================================== -->
+  <dialog class="lightbox-dialog" id="lightboxDialog" aria-label="Просмотр фотографий">
+    <div class="lightbox-shell">
+      <div class="lightbox-top">
+        <div class="lightbox-meta">
+          <strong id="lbTitle">Фотогалерея</strong>
+          <span id="lbCounter">1 / 10</span>
+        </div>
+        <button type="button" class="lb-close" id="lbClose" aria-label="Закрыть галерею">✕</button>
+      </div>
+      <div class="lightbox-stage">
+        <button type="button" class="lb-nav lb-prev" id="lbPrev" aria-label="Предыдущее фото">‹</button>
+        <img id="lbImg" src="" alt="">
+        <button type="button" class="lb-nav lb-next" id="lbNext" aria-label="Следующее фото">›</button>
+      </div>
+      <div class="lightbox-caption" id="lbCaption"></div>
+      <div class="lightbox-thumbs" id="lbThumbs"></div>
+    </div>
+  </dialog>
+
+  <script src="script.js?v=20261127-1" defer></script>
+</body>
+</html>
