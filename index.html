@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261127-4">
+  <link rel="stylesheet" href="styles.css?v=20261127-5">
 </head>
 <body id="top">
 
@@ -148,14 +148,12 @@
           </div>
           <div class="bar-divider" aria-hidden="true"></div>
           <div class="bar-field bar-field-sm">
-            <label for="quickGuests">Гости</label>
-            <select id="quickGuests">
-              <option value="2">2 гостя</option>
-              <option value="3">3 гостя</option>
-              <option value="4" selected>4 гостя</option>
-              <option value="5">5 гостей</option>
-              <option value="6">6 гостей</option>
-            </select>
+            <label for="quickGuestsValue">Гости</label>
+            <div class="guest-stepper guest-stepper-hero" role="group" aria-label="Количество гостей">
+              <button type="button" class="stepper-btn" data-guest-step="-1" aria-label="Уменьшить количество гостей">−</button>
+              <span class="stepper-val" id="quickGuestsValue">4 гостя</span>
+              <button type="button" class="stepper-btn" data-guest-step="1" aria-label="Увеличить количество гостей">+</button>
+            </div>
           </div>
           <button type="submit" class="btn-bronze bar-submit">
             Рассчитать и проверить даты
@@ -245,8 +243,8 @@
                 <li>Санузел, душ, горячая вода, ТВ</li>
               </ul>
               <div class="house-actions">
-                <button type="button" class="btn-outline-dark" data-open-gallery="derev">Смотреть внутри</button>
-                <button type="button" class="btn-emerald" data-select-house="derev">Забронировать</button>
+                <button type="button" class="btn-outline-bronze" data-open-gallery="derev">Смотреть внутри</button>
+                <button type="button" class="btn-bronze" data-select-house="derev">Забронировать</button>
               </div>
             </div>
           </article>
@@ -279,8 +277,8 @@
                 <li>Своя мангальная зона у дома</li>
               </ul>
               <div class="house-actions">
-                <button type="button" class="btn-outline-dark" data-open-gallery="terrasa">Смотреть внутри</button>
-                <button type="button" class="btn-emerald" data-select-house="terrasa">Забронировать</button>
+                <button type="button" class="btn-outline-bronze" data-open-gallery="terrasa">Смотреть внутри</button>
+                <button type="button" class="btn-bronze" data-select-house="terrasa">Забронировать</button>
               </div>
             </div>
           </article>
@@ -313,8 +311,8 @@
                 <li>Терраса со столом, лавками и мангалом</li>
               </ul>
               <div class="house-actions">
-                <button type="button" class="btn-outline-dark" data-open-gallery="lodka">Смотреть внутри</button>
-                <button type="button" class="btn-emerald" data-select-house="lodka">Забронировать</button>
+                <button type="button" class="btn-outline-bronze" data-open-gallery="lodka">Смотреть внутри</button>
+                <button type="button" class="btn-bronze" data-select-house="lodka">Забронировать</button>
               </div>
             </div>
           </article>
@@ -614,14 +612,12 @@
                   <input type="date" id="calcOut">
                 </div>
                 <div class="calc-field">
-                  <label for="calcGuestsSelect">Гостей</label>
-                  <select id="calcGuestsSelect">
-                    <option value="2">2 гостя</option>
-                    <option value="3">3 гостя</option>
-                    <option value="4" selected>4 гостя</option>
-                    <option value="5">5 гостей</option>
-                    <option value="6">6 гостей</option>
-                  </select>
+                  <label for="calcGuestsValue">Количество гостей <small id="calcGuestsMax" class="guests-max-hint">(до 6)</small></label>
+                  <div class="guest-stepper guest-stepper-calc" role="group" aria-label="Выбор количества гостей">
+                    <button type="button" class="stepper-btn" data-guest-step="-1" aria-label="Уменьшить количество гостей">−</button>
+                    <span class="stepper-val" id="calcGuestsValue">4 гостя</span>
+                    <button type="button" class="stepper-btn" data-guest-step="1" aria-label="Увеличить количество гостей">+</button>
+                  </div>
                 </div>
               </div>
 
@@ -772,7 +768,7 @@
           <span class="section-kicker">Полезно знать до поездки</span>
           <h2 class="section-title">Частые вопросы</h2>
           <p>Собрали ответы на главные вопросы гостей по заезду, питанию в ресторане, бане и рыбалке на Селигере.</p>
-          <a href="tel:+79037406661" class="btn-emerald">Задать вопрос по телефону</a>
+          <a href="tel:+79037406661" class="btn-bronze">Задать вопрос по телефону</a>
         </div>
 
         <div class="faq-list reveal">
@@ -908,6 +904,6 @@
     </div>
   </dialog>
 
-  <script src="script.js?v=20261127-3" defer></script>
+  <script src="script.js?v=20261127-5" defer></script>
 </body>
 </html>

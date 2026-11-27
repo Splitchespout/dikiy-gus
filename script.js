@@ -237,12 +237,14 @@
   const quickIn = document.getElementById('quickCheckIn');
   const quickOut = document.getElementById('quickCheckOut');
   const quickHouse = document.getElementById('quickHouse');
-  const quickGuests = document.getElementById('quickGuests');
+  const quickGuestsValue = document.getElementById('quickGuestsValue');
   const heroQuickForm = document.getElementById('heroQuickForm');
 
   const calcIn = document.getElementById('calcIn');
   const calcOut = document.getElementById('calcOut');
-  const calcGuests = document.getElementById('calcGuestsSelect');
+  const calcGuestsValue = document.getElementById('calcGuestsValue');
+  const calcGuestsMax = document.getElementById('calcGuestsMax');
+  const guestStepBtns = Array.from(document.querySelectorAll('[data-guest-step]'));
   const calcHouseBtns = Array.from(document.querySelectorAll('.calc-house-btn'));
   const presetPills = Array.from(document.querySelectorAll('.preset-pill'));
   const addonBanya = document.getElementById('addonBanya');
@@ -267,13 +269,20 @@
   };
 
   function syncInputsFromState() {
+    const maxG = HOUSES[state.house].maxGuests;
+    const label = pluralGuests(state.guests);
     if (quickIn) quickIn.value = state.checkIn;
     if (quickOut) quickOut.value = state.checkOut;
     if (quickHouse) quickHouse.value = state.house;
-    if (quickGuests) quickGuests.value = String(state.guests);
+    if (quickGuestsValue) quickGuestsValue.textContent = label;
     if (calcIn) calcIn.value = state.checkIn;
     if (calcOut) calcOut.value = state.checkOut;
-    if (calcGuests) calcGuests.value = String(state.guests);
+    if (calcGuestsValue) calcGuestsValue.textContent = label;
+    if (calcGuestsMax) calcGuestsMax.textContent = `(до ${maxG})`;
+    guestStepBtns.forEach((btn) => {
+      const step = Number(btn.dataset.guestStep);
+      btn.disabled = (step < 0 && state.guests <= 1) || (step > 0 && state.guests >= maxG);
+    });
     calcHouseBtns.forEach((b) => {
       const act = b.dataset.calcHouse === state.house;
       b.classList.toggle('is-active', act);
@@ -284,12 +293,7 @@
   function clampGuestsForHouse() {
     const maxG = HOUSES[state.house].maxGuests;
     if (state.guests > maxG) state.guests = maxG;
-    [quickGuests, calcGuests].forEach((sel) => {
-      if (!sel) return;
-      Array.from(sel.options).forEach((opt) => {
-        opt.disabled = Number(opt.value) > maxG;
-      });
-    });
+    if (state.guests < 1) state.guests = 1;
   }
 
   function recalc() {
@@ -351,13 +355,27 @@
       state.checkIn = quickIn.value || state.checkIn;
       state.checkOut = quickOut.value || state.checkOut;
       state.house = quickHouse.value;
-      state.guests = Number(quickGuests.value);
       presetPills.forEach((p) => p.classList.remove('is-active'));
       recalc();
       setBookingMode('calc');
       document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
     });
   }
+
+  if (quickHouse) {
+    quickHouse.addEventListener('change', () => {
+      state.house = quickHouse.value;
+      recalc();
+    });
+  }
+
+  guestStepBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const step = Number(btn.dataset.guestStep);
+      state.guests += step;
+      recalc();
+    });
+  });
 
   calcHouseBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -376,7 +394,6 @@
     presetPills.forEach((p) => p.classList.remove('is-active'));
     recalc();
   });
-  if (calcGuests) calcGuests.addEventListener('change', () => { state.guests = Number(calcGuests.value); recalc(); });
   [addonBanya, addonPet, addonBreakfast].forEach((el) => el && el.addEventListener('change', recalc));
 
   presetPills.forEach((pill) => {

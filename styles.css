@@ -45,11 +45,12 @@ html {
 body {
   margin: 0;
   font-family: var(--font-sans);
-  color: var(--ink-900);
-  background-color: var(--cream-100);
+  color: var(--cream-50);
+  background-color: var(--emerald-900);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  color-scheme: dark;
 }
 
 img {
@@ -588,6 +589,7 @@ button, input, select {
   width: 100%;
   outline: none;
   cursor: pointer;
+  color-scheme: dark;
 }
 
 .bar-field input::-webkit-calendar-picker-indicator {
@@ -596,8 +598,71 @@ button, input, select {
 }
 
 .bar-field select option {
-  background: var(--emerald-900);
-  color: var(--cream-50);
+  background: #0F1F18;
+  color: #FBF9F4;
+}
+
+/* Яркий интерактивный степпер гостей (− 4 гостя +) */
+.guest-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.guest-stepper-hero {
+  min-width: 132px;
+  padding-top: 2px;
+}
+
+.guest-stepper-calc {
+  padding: 6px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(212, 174, 130, 0.38);
+  background: rgba(10, 21, 16, 0.65);
+  min-height: 46px;
+}
+
+.stepper-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 174, 130, 0.55);
+  background: rgba(197, 155, 109, 0.16);
+  color: var(--white);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s;
+  flex-shrink: 0;
+}
+
+.stepper-btn:hover:not(:disabled) {
+  background: var(--bronze-500);
+  border-color: var(--bronze-400);
+  color: var(--emerald-950);
+}
+
+.stepper-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.stepper-val {
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: var(--white);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.guests-max-hint {
+  color: var(--bronze-400);
+  font-weight: 600;
+  margin-left: 4px;
 }
 
 .bar-divider {
@@ -660,22 +725,27 @@ button, input, select {
 }
 
 /* =========================================================================
-   ОБЩИЕ СЕКЦИИ И ЗАГОЛОВКИ
+   ОБЩИЕ СЕКЦИИ И ЗАГОЛОВКИ — ЕДИНАЯ ТЁМНО-ИЗУМРУДНАЯ ТЕМА (TOTAL DARK EMERALD)
    ========================================================================= */
 .section-cream {
-  background: var(--cream-100);
+  background: linear-gradient(180deg, #11231B 0%, #0E1D16 100%);
+  color: var(--cream-50);
   padding: 88px 0;
+  border-top: 1px solid rgba(212, 174, 130, 0.12);
 }
 
 .section-sand {
-  background: var(--cream-200);
+  background: linear-gradient(180deg, #14281F 0%, #102019 100%);
+  color: var(--cream-50);
   padding: 88px 0;
+  border-top: 1px solid rgba(212, 174, 130, 0.14);
 }
 
 .section-emerald {
-  background: var(--emerald-900);
+  background: linear-gradient(180deg, #0B1712 0%, #0F1F18 100%);
   color: var(--cream-50);
   padding: 92px 0;
+  border-top: 1px solid rgba(212, 174, 130, 0.14);
 }
 
 .section-head {
@@ -692,7 +762,7 @@ button, input, select {
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--bronze-600);
+  color: var(--bronze-400);
   font-weight: 700;
   margin-bottom: 8px;
 }
@@ -707,7 +777,7 @@ button, input, select {
   font-size: clamp(2.2rem, 4.2vw, 3.35rem);
   font-weight: 600;
   line-height: 1.06;
-  color: var(--emerald-900);
+  color: var(--cream-50);
 }
 
 .section-title-light {
@@ -718,12 +788,12 @@ button, input, select {
   margin: 0;
   max-width: 500px;
   font-size: 0.96rem;
-  color: var(--ink-700);
+  color: rgba(246, 243, 236, 0.78);
   line-height: 1.6;
 }
 
 .section-lead-light {
-  color: rgba(246, 243, 236, 0.76);
+  color: rgba(246, 243, 236, 0.78);
 }
 
 /* =========================================================================
@@ -738,22 +808,22 @@ button, input, select {
 .house-card {
   display: flex;
   flex-direction: column;
-  background: var(--cream-50);
-  border: 1px solid var(--border-cream);
+  background: linear-gradient(170deg, #172E24 0%, #11221A 100%);
+  border: 1px solid var(--border-dark);
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-deep);
   transition: transform 0.4s var(--ease-luxury), box-shadow 0.4s var(--ease-luxury), border-color 0.3s;
 }
 
 .house-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 28px 60px rgba(15, 31, 24, 0.13);
-  border-color: rgba(197, 155, 109, 0.55);
+  box-shadow: 0 30px 64px rgba(4, 10, 7, 0.55);
+  border-color: rgba(212, 174, 130, 0.6);
 }
 
 .house-card-featured {
-  border-color: rgba(197, 155, 109, 0.55);
+  border-color: rgba(212, 174, 130, 0.48);
 }
 
 .house-media {
@@ -851,11 +921,13 @@ button, input, select {
   top: 14px;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(251, 249, 244, 0.93);
-  color: var(--emerald-900);
+  background: rgba(10, 21, 16, 0.8);
+  border: 1px solid rgba(212, 174, 130, 0.42);
+  backdrop-filter: blur(8px);
+  color: var(--bronze-400);
   font-size: 0.74rem;
   font-weight: 700;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   z-index: 2;
 }
 
@@ -905,13 +977,13 @@ button, input, select {
   font-size: 1.55rem;
   font-weight: 600;
   line-height: 1.15;
-  color: var(--emerald-900);
+  color: var(--cream-50);
 }
 
 .house-price {
   font-size: 1.04rem;
   font-weight: 700;
-  color: var(--bronze-600);
+  color: var(--bronze-400);
   white-space: nowrap;
 }
 
@@ -919,13 +991,13 @@ button, input, select {
   font-style: normal;
   font-weight: 500;
   font-size: 0.82rem;
-  color: var(--ink-500);
+  color: rgba(246, 243, 236, 0.62);
 }
 
 .house-desc {
   margin: 0 0 16px;
   font-size: 0.89rem;
-  color: var(--ink-700);
+  color: rgba(246, 243, 236, 0.78);
   line-height: 1.58;
 }
 
@@ -933,12 +1005,12 @@ button, input, select {
   list-style: none;
   margin: 0 0 22px;
   padding: 14px 0 0;
-  border-top: 1px solid var(--border-cream);
+  border-top: 1px solid rgba(212, 174, 130, 0.18);
   display: grid;
   grid-template-columns: 1fr;
   gap: 7px;
   font-size: 0.84rem;
-  color: var(--ink-700);
+  color: rgba(246, 243, 236, 0.84);
 }
 
 .house-specs li {
@@ -954,7 +1026,7 @@ button, input, select {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--bronze-500);
+  background: var(--bronze-400);
 }
 
 .house-actions {
@@ -968,8 +1040,8 @@ button, input, select {
   margin-top: 34px;
   padding: 22px 26px;
   border-radius: var(--radius-md);
-  background: var(--cream-50);
-  border: 1px solid var(--border-cream);
+  background: rgba(22, 43, 34, 0.85);
+  border: 1px solid var(--border-dark);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
@@ -980,13 +1052,13 @@ button, input, select {
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--bronze-600);
+  color: var(--bronze-400);
   margin-bottom: 3px;
 }
 
 .rule-chip span {
   font-size: 0.88rem;
-  color: var(--ink-900);
+  color: var(--cream-50);
   font-weight: 500;
 }
 
@@ -1216,30 +1288,30 @@ button, input, select {
 .map-plan-card {
   display: flex;
   flex-direction: column;
-  background: var(--cream-50);
-  border: 1px solid var(--border-cream);
+  background: linear-gradient(170deg, #172E24 0%, #102119 100%);
+  border: 1px solid var(--border-dark);
   border-radius: var(--radius-md);
   padding: 26px;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-deep);
 }
 
 .map-plan-head h3 {
   margin: 0 0 8px;
   font-family: var(--font-serif);
   font-size: 1.75rem;
-  color: var(--emerald-900);
+  color: var(--cream-50);
   line-height: 1.15;
 }
 
 .map-plan-head p {
   margin: 0 0 18px;
   font-size: 0.88rem;
-  color: var(--ink-700);
+  color: rgba(246, 243, 236, 0.76);
 }
 
 .map-plan-img-btn {
   position: relative;
-  border: 1px solid var(--border-cream);
+  border: 1px solid var(--border-dark);
   border-radius: 14px;
   overflow: hidden;
   padding: 0;
@@ -1265,7 +1337,8 @@ button, input, select {
   bottom: 12px;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(10, 21, 16, 0.78);
+  background: rgba(10, 21, 16, 0.82);
+  border: 1px solid rgba(212, 174, 130, 0.35);
   color: var(--cream-50);
   font-size: 0.76rem;
   font-weight: 600;
@@ -1279,7 +1352,7 @@ button, input, select {
   grid-template-columns: 1fr 1fr;
   gap: 10px 14px;
   font-size: 0.83rem;
-  color: var(--ink-700);
+  color: rgba(246, 243, 236, 0.82);
 }
 
 .plan-legend li {
@@ -1293,7 +1366,8 @@ button, input, select {
   height: 24px;
   padding: 0 6px;
   border-radius: 6px;
-  background: var(--emerald-900);
+  background: rgba(197, 155, 109, 0.2);
+  border: 1px solid rgba(212, 174, 130, 0.42);
   color: var(--bronze-400);
   font-size: 0.74rem;
   font-weight: 700;
@@ -1313,9 +1387,9 @@ button, input, select {
 .filter-btn {
   padding: 9px 16px;
   border-radius: 999px;
-  border: 1px solid rgba(15, 31, 24, 0.2);
-  background: transparent;
-  color: var(--emerald-900);
+  border: 1px solid rgba(212, 174, 130, 0.32);
+  background: rgba(10, 21, 16, 0.35);
+  color: rgba(246, 243, 236, 0.84);
   font-size: 0.84rem;
   font-weight: 600;
   cursor: pointer;
@@ -1323,13 +1397,14 @@ button, input, select {
 }
 
 .filter-btn:hover {
-  border-color: var(--emerald-900);
+  border-color: var(--bronze-400);
+  color: var(--white);
 }
 
 .filter-btn.is-active {
-  background: var(--emerald-900);
-  border-color: var(--emerald-900);
-  color: var(--cream-50);
+  background: var(--bronze-500);
+  border-color: var(--bronze-500);
+  color: var(--emerald-950);
 }
 
 .gallery-mosaic {
@@ -1772,15 +1847,16 @@ button, input, select {
   gap: 10px;
   padding: 11px 18px;
   border-radius: 999px;
-  background: var(--cream-50);
-  border: 1px solid var(--border-cream);
+  background: rgba(22, 43, 34, 0.9);
+  border: 1px solid var(--border-dark);
   font-size: 0.86rem;
-  color: var(--emerald-900);
-  transition: border-color 0.25s, transform 0.25s;
+  color: var(--cream-50);
+  transition: border-color 0.25s, transform 0.25s, background-color 0.25s;
 }
 
 .yandex-badge-link:hover {
-  border-color: var(--bronze-500);
+  border-color: var(--bronze-400);
+  background: rgba(197, 155, 109, 0.16);
   transform: translateY(-2px);
 }
 
@@ -1793,15 +1869,15 @@ button, input, select {
 .review-card {
   display: flex;
   flex-direction: column;
-  background: var(--cream-50);
-  border: 1px solid var(--border-cream);
+  background: linear-gradient(170deg, #172E24 0%, #11221A 100%);
+  border: 1px solid var(--border-dark);
   border-radius: var(--radius-md);
   padding: 28px;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-deep);
 }
 
 .review-stars {
-  color: var(--bronze-500);
+  color: var(--bronze-400);
   letter-spacing: 2px;
   font-size: 1rem;
   margin-bottom: 14px;
@@ -1810,25 +1886,25 @@ button, input, select {
 .review-text {
   margin: 0 0 20px;
   font-size: 0.93rem;
-  color: var(--ink-700);
+  color: rgba(246, 243, 236, 0.84);
   line-height: 1.65;
 }
 
 .review-author {
   margin-top: auto;
   padding-top: 14px;
-  border-top: 1px solid var(--border-cream);
+  border-top: 1px solid rgba(212, 174, 130, 0.18);
 }
 
 .review-author strong {
   display: block;
   font-size: 0.92rem;
-  color: var(--emerald-900);
+  color: var(--cream-50);
 }
 
 .review-author span {
   font-size: 0.78rem;
-  color: var(--ink-500);
+  color: var(--bronze-400);
 }
 
 /* =========================================================================
@@ -1844,7 +1920,7 @@ button, input, select {
 .faq-intro p {
   margin: 14px 0 24px;
   font-size: 0.95rem;
-  color: var(--ink-700);
+  color: rgba(246, 243, 236, 0.78);
 }
 
 .faq-list {
@@ -1854,10 +1930,15 @@ button, input, select {
 }
 
 .faq-item {
-  background: var(--cream-50);
-  border: 1px solid var(--border-cream);
+  background: rgba(15, 31, 24, 0.82);
+  border: 1px solid var(--border-dark);
   border-radius: 14px;
   padding: 0 22px;
+  transition: border-color 0.25s;
+}
+
+.faq-item[open] {
+  border-color: rgba(212, 174, 130, 0.45);
 }
 
 .faq-item summary {
@@ -1865,7 +1946,7 @@ button, input, select {
   padding: 18px 28px 18px 0;
   font-weight: 700;
   font-size: 0.98rem;
-  color: var(--emerald-900);
+  color: var(--cream-50);
   cursor: pointer;
   position: relative;
 }
@@ -1881,7 +1962,7 @@ button, input, select {
   top: 50%;
   transform: translateY(-50%);
   font-size: 1.35rem;
-  color: var(--bronze-600);
+  color: var(--bronze-400);
   font-weight: 400;
 }
 
@@ -1892,7 +1973,7 @@ button, input, select {
 .faq-item p {
   margin: 0 0 18px;
   font-size: 0.9rem;
-  color: var(--ink-700);
+  color: rgba(246, 243, 236, 0.78);
   line-height: 1.62;
 }
 
